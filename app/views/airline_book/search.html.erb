@@ -32,19 +32,27 @@
   <section id="content">
     <div class="for_banners">
 
-    <%= form_for @farequote, url: {action: "search"} do |f| %><br/>
+    <%= form_for @sector, url: {action: "save_sector"} do |f| %><br/>
+    <%= f.label :flight_name %> 
+    <%= f.select :flight_name, [['SG'],['6E'],['9W'],['AI'],['G8']] %><br/><br/>
     
-    <%= f.label :Name %>
-    <%= f.text_field :name %><br/><br/>
+    <%= f.label :airline_no %>
+    <%= f.text_field :airline_no %><br/><br/>
     
-   
+    <%= f.label :departure %> 
+    <%= f.select :departure, [['HYD'],['BOM'],['DEL'],['MAA'],['BLR']] %><br/><br/>
     
+    <%= f.label :arrival %> 
+    <%= f.select :arrival, [['BOM'],['DEL'],['BLR']]  %><br/><br/>
+    
+    <%= f.label :base_fare %>
+    <%= f.text_field :base_fare %><br/><br/>
 
      <a class="button1">
      <%= f.submit  %> <br/><br/><br/></a>
   
   <% end %>
-
+  
     </div>
   </section>
   <!--content end-->
@@ -64,6 +72,5 @@
   </footer>
   <!--footer end-->
 </div>
-
 </body>
 </html>
