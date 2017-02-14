@@ -1,0 +1,56 @@
+
+<head>
+<title>AirLines</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+
+<body id="page1">
+<div class="main">
+  <!--header -->
+  <header>
+    <div class="wrapper">
+      <h1><a href="index.html" id="logo">AirLines Fare Calculation</a></h1>
+      <span id="slogan">AirLines Fare Calculation</span>
+
+    </div>
+    <nav>
+      <ul id="menu">
+         <li><%= link_to 'Home',airline_book_start_path %> </li>
+      <li> <%= link_to 'Sector',airline_book_add_sector_path %> </li>
+      <li><%= link_to 'Passenger',airline_book_add_passenger_path %> </li>
+      </ul>
+    </nav>
+  </header>
+  <!-- / header -->
+
+  <!--content -->
+  <section id="content">
+    <div class="for_banners">
+
+
+  <% if flash[:notice] %>
+   <h1> <div class="notice"><%= flash[:notice] %></div> </br> Thank you</h1>
+  <% end %>
+    </div>
+  </section>
+  <!--content end-->
+  <!--footer -->
+  <footer>
+    <div class="wrapper">
+      <ul id="icons">
+        <li><a href="http://www.facebook.com/" class="normaltip"><img src="/assets/icon1.jpg" alt=""></a></li>
+        
+        <li><a href="https://twitter.com/" class="normaltip"><img src="/assets/icon4.jpg" alt=""></a></li>
+        <li><a href="https://www.linkedin.com/" class="normaltip"><img src="/assets/icon5.jpg" alt=""></a></li>
+
+      </ul>
+       <div class="links">Copyright &copy; <a href="#">Iriss bsp it</a> All Rights Reserved<br>
+        Design by <a target="_blank" href="http://www.irissbspit.com/">IrissDevelopementGroup.com</a></div>
+    </div>
+  </footer>
+  <!--footer end-->
+</div>
+</body>
+</html>

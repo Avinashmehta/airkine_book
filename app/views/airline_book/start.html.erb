@@ -1,0 +1,148 @@
+
+<head>
+<title>AirLines</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+
+
+</head>
+<body id="page1">
+<div class="main">
+  <!--header -->
+  <header>
+    <div class="wrapper">
+      <h1><a href="index.html" id="logo"></a></h1>
+      <span id="slogan">AirLines Fare Calculation</span>
+
+    </div>
+    <nav>
+      <ul id="menu">
+       <li><span><span><%= link_to 'Home',airline_book_start_path %></span></span></li>
+      <li><span><span><%= link_to 'Sector ',airline_book_add_sector_path %></span></span></li>
+     	<li><span><span><%= link_to 'Passenger',airline_book_add_passenger_path %> </span></span></li>
+      <li><span><span><%= link_to ' Search',airline_book_search_path %></span></span></li>
+
+
+
+      </ul>
+    </nav>
+  </header>
+
+  <section id="content">
+    <div class="for_banners">
+
+    
+<% if session[:session_id].nil? %>
+	
+ <% else %>
+  your quote id is "<%= session[:session_id] %>"
+ <% end %></br>
+
+<a class="button1">
+<%= button_to "Add Sector" ,airline_book_add_sector_path %> <br/></a>
+
+
+
+ <% unless @sector.empty? %>
+  <table>
+				<thead>
+					<tr>
+						
+						<th>Flight Name </th>
+						<th>Airline no </th>
+						<th>Departure </th>
+						<th>Arrival </th>
+						<th>Base Fare </th>
+				</tr>
+				</thead>
+				<%= form_tag("start", method: "get") do %>
+					<tbody >
+						<% @sector.each do |sector| %>
+							<tr>
+								
+								<td><%= sector.flight_name %></td>
+								<td><%= sector.airline_no %></td>
+								<td><%= sector.departure %></td>
+								<td><%= sector.arrival %></td>
+								<td><%= sector.base_fare %></td>
+							</tr>
+						<% end %>
+					</tbody>
+			</table>
+  
+  <% end %>
+  
+  <% end %>
+  
+
+</br>	
+<a class="button1">
+
+<%= button_to "Add Passenger",airline_book_add_passenger_path %> </a>
+</br></br>
+<% unless @passenger.empty? %>
+  <table>
+				<thead>
+					<tr>
+						
+						<th>Title</th>
+						<th>Passenger</th>
+						<th>Category</th>
+					
+					</tr>
+				</thead>
+
+				<%= form_tag("start", method: "get") do %>
+					<tbody>
+						<% @passenger.each do |passenger| %>
+							<tr>
+								<td><%= passenger.title %></td>
+								<td><%= passenger.pass_name %></td>
+								<td><%= passenger.category %></td>
+							
+							</tr>
+						<% end %>
+					</tbody>
+			</table>
+  
+  <% end %>
+  
+  <% end %>
+ 
+  </br>
+  
+<a class="button1">
+<%= button_to "RESET THE PASSENGER ", airline_book_destroy_Passenger_path %></a> 
+<a class="button1">
+<%= button_to "RESET THE SECTOR ", airline_book_destroy_Sector_path %></a>
+<a class="button1">
+<%= button_to  "CALCULATE FARE ", airline_book_calculate_fare_path %></a>
+
+<!--<%= link_to "SEE THE EACH PASSENGER FARE ", airline_book_farequote_path %><br/> -->
+<!--<%= button_to "TOTAL FARE ", airline_book_farequote_path %></br>-->
+
+
+
+   </div>
+  </section>
+  <!--content end-->
+  <!--footer -->
+  <footer>
+    <div class="wrapper">
+      <ul id="icons">
+        <li><a href="http://www.facebook.com/" class="normaltip"><img src="/assets/icon1.jpg" alt=""></a></li>
+        
+        <li><a href="https://twitter.com/" class="normaltip"><img src="/assets/icon4.jpg" alt=""></a></li>
+        <li><a href="https://www.linkedin.com/" class="normaltip"><img src="/assets/icon5.jpg" alt=""></a></li>
+
+      </ul>
+      <div class="links">Copyright &copy; <a href="#">Iriss bsp it</a> All Rights Reserved<br>
+        Design by <a target="_blank" href="http://www.irissbspit.com/">IrissDevelopementGroup.com</a></div>
+    </div>
+  </footer>
+  <!--footer end-->
+</div>
+
+</body>
